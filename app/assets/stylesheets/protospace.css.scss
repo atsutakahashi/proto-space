@@ -294,6 +294,36 @@ body {
     padding: 0;
   }
 
+  ul.more_list {
+    position: absolute;
+    text-align: left;
+    width: 80px;
+    right: 0;
+    font-size: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    border-radius: 3px;
+    list-style: none;
+    padding-right: 100px;
+
+    li {
+      border-bottom: 1px solid #ddd;
+      &:last-child {
+        border-bottom: 0;
+      }
+      a {
+        display: block;
+        padding: 5px;
+        &:hover {
+          background-color: #ddd;
+          color: #fff;
+        }
+      }
+    }
+  }
+    
+
   h3 {
     margin: 0;
     font-size: 1.6rem;
@@ -633,4 +663,21 @@ body {
   border-color: #ebccd1;
   color: #a94442;
 }
+
+/* -- destroy view -- */
+.success {
+  text-indent: 20px;
+  color: #a94442;
+}
+
+
+
+
+
+
+
+
+
+
+
 
