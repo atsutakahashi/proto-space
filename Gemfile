@@ -15,7 +15,6 @@ gem 'erb2haml'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'carrierwave'
-gem 'rmagick'
 gem 'mini_magick'
 
 group :development, :test do
