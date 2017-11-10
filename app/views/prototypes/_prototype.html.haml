@@ -1,7 +1,14 @@
 .col-sm-4.col-md-3.proto-content
   %ul.more_list
     %li
-      =link_to 'Delete', "/prototypes/#{prototype.id}", method: :delete
+      .dropdown.drop_menu_location
+        %button#dropdownMenu.btn.btn-default.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :type => "button"}
+          Action
+        %ul.dropdown-menu{"aria-labelledby" => "dropdownMenu1"}
+          %li
+            %a{"data-method" => "delete", :href => "/prototypes/#{prototype.id}", :rel => "nofollow"} Delete
+          %li
+            Edit    
   .thumbnail
     = link_to image_tag(prototype.set_main_thumbnail), prototype_path(prototype)
     .caption
