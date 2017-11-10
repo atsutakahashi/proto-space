@@ -35,7 +35,14 @@ class PrototypesController < ApplicationController
   end
 
   def update
-
+    @prototype = Prototype.find(params[:id])
+    @prototype.captured_images.clear
+    if @prototype.update_attribute(update_prototype_params)
+      redirect_to root_path, notice: 'Your prototype was successfully updated'
+    else
+      flash.now[:alert] = 'Your prototype was unsuccessfully updated'
+      render :edit
+    end
   end
 
   private
@@ -53,4 +60,9 @@ class PrototypesController < ApplicationController
       captured_images_attributes: [:content, :status]
     )
   end
+
+  def update_prototype_params
+    params.require(:prototype).permit(:title, :catch_copy, :concept, :user_id, captured_images_attributes: [:content, :status, :_destroy, :id])
+  end
+
 end
