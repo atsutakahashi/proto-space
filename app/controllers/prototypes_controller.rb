@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: :show
+  before_action :set_prototype, only: [:new, :show, :destroy, :edit, :update]
 
   def index
     @prototypes = Prototype.all
@@ -24,23 +24,20 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    @prototype = Prototype.find(params[:id])
     if @prototype.user_id == current_user.id
         @prototype.destroy
     end
   end
 
   def edit
-    @prototype = Prototype.find(params[:id])
   end
 
   def update
-    @prototype = Prototype.find(params[:id])
     if @prototype.update(update_prototype_params)
       redirect_to root_path, notice: 'Your prototype was successfully updated'
     else
       flash.now[:alert] = 'Your prototype was unsuccessfully updated'
-      render :edit
+      render :show
     end
   end
 
