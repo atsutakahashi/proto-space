@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Miuraspace
   class Application < Rails::Application
+    config.assets.initialize_on_precompile = true
     config.active_record.raise_in_transactional_callbacks = true
     config.i18n.default_locale = :ja
     config.generators do |g|
