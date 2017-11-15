@@ -324,7 +324,6 @@ body {
       }
     }
   }
-    
 
   h3 {
     margin: 0;
@@ -380,17 +379,37 @@ body {
   }
 
   .proto-comments {
-    h4 {
-      padding-bottom: 20px;
-    }
+    .comments{
+      display: table-cell;
+      vertical-align: top;
+      .media{
+        margin-top: 15px;
+        .media-left {
+          padding-right: 10px;
+          display: table-cell;
+          vertical-align: top;
+        }
+        .media-body{
+          display: table-cell;
+          vertical-align: top;
+          h4 {
+            padding-bottom: 20px;
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.1;
+          }
+        }
+      }
+      form {
+        margin: 40px 0;
+      }
 
-    form {
-      margin: 40px 0;
-    }
-
-    .form-group {
-      textarea {
-        width: 100%;
+      .form-group {
+        textarea {
+          width: 100%;
+        }
       }
     }
   }
