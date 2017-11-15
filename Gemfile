@@ -30,4 +30,3 @@ end
 
 gem 'kaminari'
 gem 'rails_12factor', group: :production
-gem 'babel-schmooze-sprockets'
