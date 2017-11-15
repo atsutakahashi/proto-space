@@ -1,18 +1,14 @@
 $(function(){
   function buildHTML(comment){
-    var html = `<div class="media">
-                  <div class="media-left">
-                    <img src = "${ comment.user_avatar.url }" width="64", height="64">
-                  </div>
-                  <div class="media-body">
-                    <h4>
-                      ${ comment.user_name }
-                    </h4>
-                    <p>
-                      ${ comment.text }
-                    </P>
-                  </div>
-                </div>`
+    var html = '<div class="media">'+
+                  '<div class="media-left">'+
+                    '<img src = "'+ comment.user_avatar.url +'" width="64", height="64">'+
+                  '</div>'+
+                  '<div class="media-body">'+
+                    '<h4>' +comment.user_name + '</h4>'+
+                    '<p>' + comment.text + '</P>'+
+                  '</div>'+
+                '</div>'
     return html;
   }
   $('#new_comment').on('submit', function(e){
