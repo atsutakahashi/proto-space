@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :comments, only: [:new, :create, :edit, :update, :destroy]
   end
   resources :users, only: [:show, :edit, :update,]
+  resources :likes, omly: [:create, :destroy]
 end
