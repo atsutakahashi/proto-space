@@ -23,7 +23,7 @@ class PrototypesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @prototype.comments
-    @likes = Like.where(prototype_id: params[:post_id])
+    @likes = Like.where(prototype_id: params[:id])
   end
 
   def destroy
