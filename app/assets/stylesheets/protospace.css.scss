@@ -355,21 +355,26 @@ body {
 .proto-page {
   .user-nav {
     padding: 50px 0;
-
     .media-object {
       border-radius: 50%;
     }
-
-    button {
-      padding-right: 35px;
-
-      img {
+    .likes-box {
+      float: right;
+      width: 268px;
+      margin: 0 -1px 15px 0;
+      #like-button {
+        width: 110px;
+        height: 62px;
+        float: left;
+        margin-right: 10px;
+        img {
+        width: 18px;
         max-width: 18px;
         margin-right: 5px;
-      }
-
-      .num {
-        font-weight: bold;
+        }
+        #like-sum {
+          font-weight: bold;
+        }
       }
     }
   }
@@ -379,36 +384,52 @@ body {
   }
 
   .proto-comments {
-    .comments{
-      display: table-cell;
-      vertical-align: top;
-      .media{
-        margin-top: 15px;
-        .media-left {
-          padding-right: 10px;
-          display: table-cell;
-          vertical-align: top;
-        }
-        .media-body{
-          display: table-cell;
-          vertical-align: top;
-          h4 {
-            padding-bottom: 20px;
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 1.1;
+    .col-md-8{
+      width: 66.66666667%;
+      .comments{
+        display: table-cell;
+        vertical-align: top;
+        .media{
+          margin-top: 15px;
+          .media-left {
+            padding-right: 10px;
+            display: table-cell;
+            vertical-align: top;
+          }
+          .media-body{
+            display: table-cell;
+            vertical-align: top;
+            h4 {
+              padding-bottom: 20px;
+              margin-top: 0;
+              margin-bottom: 5px;
+              font-size: 18px;
+              font-weight: 500;
+              line-height: 1.1;
+            }
           }
         }
       }
-      form {
-        margin: 40px 0;
-      }
-
       .form-group {
-        textarea {
-          width: 100%;
+        margin: 40px 0;
+        .row {
+          margin-left: -15px;
+          margin-right: -15px;
+          .col.md-10{
+            float: left;
+            width: 83.33333333%;
+            position: relative;
+            min-height: 1px;
+            padding-left: 15px;
+            padding-right: 15px;
+            textarea {
+              width: 100%;
+            }
+          }
+          .col-md-2{
+            width: 16.66666667%;
+            float: left;
+          }
         }
       }
     }

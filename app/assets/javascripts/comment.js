@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(comment){
     var html = '<div class="media">'+
                   '<div class="media-left">'+
-                    '<img src = "'+ comment.user_avatar.url +'" width="64", height="64">'+
+                    '<img src = "'+ comment.user_avatar.url +'" width="64px", height="64px">'+
                   '</div>'+
                   '<div class="media-body">'+
                     '<h4>' +comment.user_name + '</h4>'+
@@ -26,7 +26,7 @@ $(function(){
     })
    .done(function(data){
       var html = buildHTML(data);
-      $('.proto-comments').append(html)
+      $('.comments').append(html)
       $('.text-box').val('')
     })
     .fail(function(){

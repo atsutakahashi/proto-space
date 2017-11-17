@@ -1,23 +1,39 @@
-var $heart = $("#like-button img");
- $("#like-button").on("click", function(){
-   var $likeSum = $("#like-sum")
-   like_function(#{@prototype.id}, $(this), $heart, $likeSum)
- });
+$(document).on('turbolinks:load', function () {
+  $("#like-button").on("click", function(e){
+    var sum = $("#like-sum").text();
+    var $heart = $("#like-button img");
+    var $id = $(".img-responsive").data("prototype-id");
+    e.preventDefault();
+    like_function($id, $(this), $heart, sum);
+  });
+});
+function like_function(id, button, heart, sum) {
 
- function like_function(id, button, heart, sum) {
-   if (button.hasClass("decrement")){
-       $.ajax({url: "/likes/" + id, type: "delete", data: {prototype_id: id, dataType: "json"}})
-       .done(function(data){
-         button.removeClass("decrement").addClass("increment")
-         heart.attr("src", "/assets/icon_heart.svg")
-         sum.text(data["count"])
-       })
-     }else{
-       $.ajax({url: "/likes", type: "post", data: {prototype_id: id, dataType: "json"}})
-       .done(function(data){
-         button.removeClass("increment").addClass("decrement")
-         heart.attr("src", "/assets/icon_heart_red.svg")
-         sum.text(data["count"])
-       })
-     }
- }
+  if (button.hasClass("decrement")){
+    $.ajax({
+      url: /likes/+id,
+      type: "delete",
+      data: {prototype_id: id},
+      dataType: "json",
+    })
+
+    .done(function(data){
+      button.removeClass("decrement").addClass("increment");
+      heart.attr("src", "/assets/icon_heart.svg");
+      $("#like-sum").text(sum-1);
+    })
+  }else{
+    $.ajax({
+      url: /likes/,
+      type: "post",
+      data: {prototype_id: id},
+      dataType: "json",
+    })
+
+    .done(function(data){
+      button.removeClass("increment").addClass("decrement");
+      heart.attr("src", "/assets/icon_heart_red.svg");
+      $("#like-sum").text(Number(sum+1));
+    });
+  };
+};
