@@ -37,10 +37,10 @@ $(document).on('turbolinks:load', function(){
 (function(document){
 
   $(document).ready(function(){
-    $("p").click(edit_togle());
+    $("p").click(edit_toggle());
   });
 
-  function edit_togle(){
+  function edit_toggle(){
     var edit_flag = false;
     return function(){
       if(edit_flag) return;
