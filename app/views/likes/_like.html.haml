@@ -1,16 +1,16 @@
 -if user_signed_in?
   - if prototype.like_user(current_user)
     %button.btn.btn-default.decrement#like-button
-      = image_tag("icon_heart_red.svg")
+      = image_tag("icon_heart_red.ico")
       Like
       %span.num#like-sum= likes_counter(@likes)
   - else
     %button.btn.btn-default.increment#like-button
-      = image_tag("icon_heart.svg")
+      = image_tag("icon_heart.ico")
       Like
       %span.num#like-sum= likes_counter(@likes)
 - else
   %button#like-button
-    = image_tag("icon_heart.svg")
+    = image_tag("icon_heart.ico")
     Like
     %span.num#like-sum= likes_counter(@likes)
