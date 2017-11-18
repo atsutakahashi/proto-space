@@ -56,6 +56,7 @@
                   = comment.user.name
                 %p
                   = comment.text
+              = link_to "コメントを削除します", "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete
       .form-group
         %h4 Write a comment
         .row
