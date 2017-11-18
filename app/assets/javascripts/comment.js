@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   function buildHTML(comment){
     var html = '<div class="media">'+
                   '<div class="media-left">'+
@@ -15,7 +15,6 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var href = $(this).attr('action')
-
     $.ajax({
       url: href,
       type: "POST",
@@ -35,5 +34,28 @@ $(function(){
   })
 });
 
+(function(document){
 
+  $(document).ready(function(){
+    $("p").click(edit_togle());
+  });
 
+  function edit_togle(){
+    var edit_flag = false;
+    return function(){
+      if(edit_flag) return;
+      var $input = $("<input>").attr("type","text").val($(this).text());
+      $(this).html($input);
+      $("input", this).focus().blur(function(){
+        save($(this).val());
+        $(this).after($(this).val()).unbind().remove();
+        edit_flag = false;
+        });
+        edit_flag = true;
+      }
+    }
+
+    function save(value){
+      alert("「"+value+"」を保存しました");
+    }
+})(document);
