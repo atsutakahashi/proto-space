@@ -19,7 +19,7 @@ function like_function(id, button, heart, sum) {
 
     .done(function(data){
       button.removeClass("decrement").addClass("increment");
-      heart.attr("src", "/assets/icon_heart.svg");
+      heart.attr("src", "/assets/icon_heart.ico");
       $("#like-sum").text(sum-1);
     })
   }else{
@@ -32,7 +32,7 @@ function like_function(id, button, heart, sum) {
 
     .done(function(data){
       button.removeClass("increment").addClass("decrement");
-      heart.attr("src", "/assets/icon_heart_red.svg");
+      heart.attr("src", "/assets/icon_heart_red.ico");
       $("#like-sum").text(Number(sum+1));
     });
   };
