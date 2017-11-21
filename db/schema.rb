@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117033508) do
+ActiveRecord::Schema.define(version: 20171121013039) do
 
   create_table "captured_images", force: :cascade do |t|
     t.string  "content",      limit: 255
@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20171117033508) do
 
   add_index "comments", ["prototype_id"], name: "fk_rails_5a7b40847a", using: :btree
   add_index "comments", ["user_id"], name: "fk_rails_03de2dc08c", using: :btree
+
+  create_table "genres", force: :cascade do |t|
+    t.integer  "prototype_id", limit: 4, null: false
+    t.integer  "tag_id",       limit: 4, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "genres", ["prototype_id"], name: "fk_rails_a3ef0b4a1c", using: :btree
+  add_index "genres", ["tag_id"], name: "fk_rails_ffa5e79962", using: :btree
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id",      limit: 4, null: false
@@ -53,6 +63,12 @@ ActiveRecord::Schema.define(version: 20171117033508) do
   end
 
   add_index "prototypes", ["user_id"], name: "index_prototypes_on_user_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255,   default: "", null: false
@@ -80,6 +96,8 @@ ActiveRecord::Schema.define(version: 20171117033508) do
   add_foreign_key "captured_images", "prototypes"
   add_foreign_key "comments", "prototypes"
   add_foreign_key "comments", "users"
+  add_foreign_key "genres", "prototypes"
+  add_foreign_key "genres", "tags"
   add_foreign_key "likes", "prototypes"
   add_foreign_key "likes", "users"
   add_foreign_key "prototypes", "users"

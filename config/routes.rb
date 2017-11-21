@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show, :edit, :update,]
   resources :likes, only: [:create, :destroy]
+  resources :tags, only: [:index, :create, :edit, :update, :destroy]
 end

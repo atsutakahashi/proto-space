@@ -6,7 +6,7 @@ $(document).on('turbolinks:load', function(){
                   '</div>'+
                   '<div class="media-body">'+
                     '<h4>' +comment.user_name + '</h4>'+
-                    '<p>' + comment.text + '</P>'+
+                    '<p>' + comment.text + '</p>'+
                   '</div>'+
                 '</div>'
     return html;
@@ -35,11 +35,9 @@ $(document).on('turbolinks:load', function(){
 });
 
 (function(document){
-
   $(document).ready(function(){
     $("p").click(edit_toggle());
   });
-
   function edit_toggle(){
     var edit_flag = false;
     return function(){
@@ -54,8 +52,8 @@ $(document).on('turbolinks:load', function(){
         edit_flag = true;
       }
     }
-
     function save(value){
       alert("「"+value+"」を保存しました");
     }
+
 })(document);
