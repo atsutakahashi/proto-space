@@ -57,3 +57,17 @@ $(document).on('turbolinks:load', function(){
     }
 
 })(document);
+
+$(document).on('turbolinks:load', function(){
+  $('.delete-function').on('click', function(e){
+    e.preventDefault();
+    $(event.target).parent().parent().remove();
+  })
+})
+
+
+
+
+
+
+
