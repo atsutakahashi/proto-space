@@ -12,7 +12,7 @@
           .cover-image-upload#main_image_uploader
             = f.fields_for :captured_images do |image|
               - if image.object.status == "main"
-                = image.file_field :content
+                = image.file_field :content, required: true, id: "image"
                 = image_tag image.object.content.large, class: 'img-responsive img-size-fix', style: "margin: 0 auto;"
                 = image.hidden_field :status, value: "main"
         .col-md-12

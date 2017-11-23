@@ -36,7 +36,7 @@ $(document).on('turbolinks:load', function(){
 
 (function(document){
   $(document).ready(function(){
-    $("p").click(edit_toggle());
+    $(".comments").find("p").click(edit_toggle());
   });
   function edit_toggle(){
     var edit_flag = false;
