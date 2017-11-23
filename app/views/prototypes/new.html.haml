@@ -20,10 +20,10 @@
           %ul.proto-sub-list.list-group
             - 3.times do |i|
               %li.list-group-item.col-md-4
-                .image-upload#sub_image_uploader
+                .image-upload#sub_image_uploader{class: i}
                   = f.fields_for :captured_images do |image|
-                    %img.sub{src: ""}
-                    = image.file_field :content, required: true, id: "sub-image"
+                    %img{src: "", class: i}
+                    = image.file_field :content, required: true, id: "sub-image", class: i
                     = image.hidden_field :status, value: "sub"
       .row.proto-description
         .col-md-12
