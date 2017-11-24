@@ -88,18 +88,18 @@ $(document).on('turbolinks:load', function(){
 });
 
 $(document).on('turbolinks:load', function(){
-    $('#prototype_captured_images_attributes_5_id').change(function(){
+    $('#sub-image').change(function(){
         if (!this.files.length) {
             return;
         }
         var file = this.files[0],           //画像１つのみ選択
-            image = $('#prototype_captured_images_attributes_5_id'),
+            image = $(this).parent(),
             fileReader = new FileReader();
 
         // 読み込みが完了した際のイベントハンドラ。imgのsrcにデータセット
         fileReader.onload = function(event) {
             // 読み込んだデータをimgに設定
-            image.children('#prototype_captured_images_attributes_5_id').attr('src', event.target.result);
+            image.children('img').attr('src', event.target.result);
             // imgLiquid - imgの親要素に指定
             image.imgLiquid({fill: false});
         };
