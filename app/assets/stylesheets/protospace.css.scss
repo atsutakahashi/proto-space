@@ -407,6 +407,27 @@ body {
               font-weight: 500;
               line-height: 1.1;
             }
+            .edit-form-group {
+              .row {
+                margin-left: -15px;
+                margin-right: -15px;
+                .col.md-10{
+                  float: left;
+                  width: 83.33333333%;
+                  position: relative;
+                  min-height: 1px;
+                  padding-left: 15px;
+                  padding-right: 15px;
+                  textarea {
+                    width: 100%;
+                  }
+                }
+                .col-md-2{
+                  width: 16.66666667%;
+                  float: left;
+                }
+              }
+            }
           }
         }
       }
@@ -804,16 +825,3 @@ body {
   top: 10px;
   left: 20px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
