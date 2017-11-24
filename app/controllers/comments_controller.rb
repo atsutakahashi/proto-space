@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!, except: [:update]
+  before_action :authenticate_user!
 
   def create
     @comment = Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id], user_id: current_user.id)
@@ -13,9 +13,10 @@ class CommentsController < ApplicationController
   end
 
   def update
-    comment = Comment.find(params[:id])
-    comment.update(text: update_params[:text])
-    redirect_to prototype_path(params[:prototype_id])
+    @comment = Comment.update(comment_params)
+    respond_to do |format|
+      format.json { render json: @comment}
+    end
   end
 
   def destroy
@@ -25,10 +26,7 @@ class CommentsController < ApplicationController
 
   private
     def comment_params
-      params.require(:comment).permit(:text).merge(prototype_id: params[:prototype_id], user_id: current_user.id)
+     params.require(:comment).permit(:text).merge(prototype_id: params[:prototype_id], user_id: current_user.id)
     end
 
-    def update_params
-      params.require(:comment).permit(:text)
-    end
 end
