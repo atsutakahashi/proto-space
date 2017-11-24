@@ -49,15 +49,14 @@
         - if @comments
           - @comments.each do |comment|
             .media
-              .media-left{data:{ prototype_id: "#{@prototype.id}"}}
-                = image_tag(@prototype.user.avatar.thumb, alt: "profile_photo", class: "media-object", style: "width: 64px; height: 64px;")
+              .media-left
+                = image_tag(@prototype.user.avatar.thumb, alt: "profile_photo", class: "media-object", style: "width: 64px; height: 64px;", data:{ prototype_id: "#{@prototype.id}}"})
               .media-body{data:{ comment_id: "#{comment.id}"}}
                 %h4
                   = comment.user.name
                 %p
                   = comment.text
-                %a.edit-function 編集
-                = link_to "削除", "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete, class: "delete-function", remote: :true
+                = link_to "コメントを削除します", "/prototypes/#{@prototype.id}/comments/#{comment.id}", method: :delete, class: "delete-function", remote: :true
       .form-group
         %h4 Write a comment
         .row

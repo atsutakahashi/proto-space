@@ -34,31 +34,29 @@ $(document).on('turbolinks:load', function(){
   })
 });
 
-$(document).on('turbolinks:load', function(){
-  function buildEditHTML(pId,cId){
-    var html =  '<div class="edit-form-group">'+
-                  '<div class="row">'+
-                    '<form class="edit_comment" id="edit_comment" action="/prototypes/'+pId+'/comments/'+cId+'" accept-charset="UTF-8" method="post">'+
-                      '<div class="edit-form-group col md-10">'+
-                        '<textarea class="text-box" name="comment[text]" id="comment_text"></textarea>'+
-                      '</div>'+
-                      '<div class="edit-form-group col-md-2">'+
-                        '<input name="_method" type="hidden" value="PATCH">'+
-                        '<input type="submit" name="commit" value="update" class="btn btn-primary">'+
-                      '</div>'+
-                    '</form>'+
-                  '</div>'+
-                '</div>'
-    return html;
-  }
-  $(".edit-function").on('click' ,function(e){
-    e.preventDefault();
-    var pId = $(this).parent().parent().find(".media-left").data("prototype-id");
-    var cId = $(this).parent().data("comment-id")
-    var html = buildEditHTML(pId,cId)
-    $(this).parent().find("p").html(html)
+(function(document){
+  $(document).ready(function(){
+    $(".comments").find("p").click(edit_toggle());
   });
-});
+  function edit_toggle(){
+    var edit_flag = false;
+    return function(){
+      if(edit_flag) return;
+      var $input = $("<input>").attr("type","text").val($(this).text());
+      $(this).html($input);
+      $("input", this).focus().blur(function(){
+        save($(this).val());
+        $(this).after($(this).val()).unbind().remove();
+        edit_flag = false;
+        });
+        edit_flag = true;
+      }
+    }
+    function save(value){
+      alert("「"+value+"」を保存しました");
+    }
+
+})(document);
 
 $(document).on('turbolinks:load', function(){
   $('.delete-function').on('click', function(e){
