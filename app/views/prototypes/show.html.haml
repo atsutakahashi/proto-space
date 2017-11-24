@@ -50,7 +50,7 @@
           - @comments.each do |comment|
             .media
               .media-left{data:{ prototype_id: "#{@prototype.id}"}}
-                = image_tag(@prototype.user.avatar.thumb, alt: "profile_photo", class: "media-object", style: "width: 64px; height: 64px;")
+                = image_tag(comment.user.avatar.thumb, alt: "profile_photo", class: "media-object", style: "width: 64px; height: 64px;")
               .media-body{data:{ comment_id: "#{comment.id}"}}
                 %h4
                   = comment.user.name
