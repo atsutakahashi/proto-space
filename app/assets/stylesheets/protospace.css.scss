@@ -149,7 +149,13 @@ body {
   z-index: 2;
 }
 
-
+.col-md-4 {
+  .btn-default{
+    width: 350px;
+    height: 40px;
+    margin-top: 15px;
+  }
+}
 
 /* -- Ripple effect -------------------------------- */
 .ripple-effect {
