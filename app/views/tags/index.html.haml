@@ -4,4 +4,4 @@
 			%h2 Tag List
 			- @tags.each do |tag|
 				.col-md-4
-					= tag.name
+					= link_to tag.name, "/tags", class: "btn btn-default"
