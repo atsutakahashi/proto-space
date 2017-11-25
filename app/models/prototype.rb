@@ -3,10 +3,11 @@ class Prototype < ActiveRecord::Base
   has_many :captured_images, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :genres, foreign_key: 'prototype_id'
+  has_many :genres, foreign_key: 'prototype_id', dependent: :destroy
   has_many :tags, through: :genres
 
   accepts_nested_attributes_for :captured_images, reject_if: :reject_sub_images
+  accepts_nested_attributes_for :tags
 
   validates :title,
             :catch_copy,
