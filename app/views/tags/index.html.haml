@@ -1,0 +1,7 @@
+.container.tags-list
+	.row
+		.tags-list
+			%h2 Tag List
+			- @tags.each do |tag|
+				.col-md-4
+					= tag.name
